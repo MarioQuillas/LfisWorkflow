@@ -1,0 +1,6 @@
+print('from script 0')
+#x <- matrix(1:10, ncol = 5)
+#pwd = "C://DEV//PRICING//LFWorkflow//LFWorkflow.RScripts//" # getwd()
+#outputDirectory = paste(pwd, "toto.out", sep = "")
+#write(outputDirectory, "")
+#write(x, outputDirectory, sep = "\t", append = TRUE)

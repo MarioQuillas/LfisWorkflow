@@ -1,0 +1,27 @@
+[
+	{
+		"Id": "1",
+		"Script" : "script1",
+		"Resources" : ["UC2232", "UC1111"],
+		"Next" : ["2", "3"]
+	},
+	{
+		"Id": "2",
+		"Script" : "script2",
+		"Resources" : ["UC2232", "UC1111"],
+		"Next" : ["4"]
+	},
+	{
+		"Id": "3",
+		"Script" : "script3",
+		"Resources" : ["UC2232", "UC1111"],
+		"Next" : ["4"]
+	},
+	{
+		"Id": "4",
+		"Script" : "script4",
+		"Resources" : ["UC2232", "UC1111"],
+		"Next" : []
+	}
+]
+
