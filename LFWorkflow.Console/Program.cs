@@ -1,9 +1,9 @@
 ﻿namespace LFWorkflow.Console
 {
-    using LFWorkflow.Console.Presentation;
-    using LFWorkflow.Console.Presentation.Abstractions;
-    using LFWorkflow.Console.Presentation.CommandResults;
-    using LFWorkflow.Console.Presentation.Views;
+    using Presentation;
+    using Presentation.Abstractions;
+    using Presentation.CommandResults;
+    using Presentation.Views;
 
     internal class Program
     {
@@ -30,19 +30,29 @@
         {
             var viewLocator = new ViewLocator();
 
-            viewLocator.RegisterService(Selector<InvalidIdResult>, obj => new InvalidIdView((InvalidIdResult)obj));
+            viewLocator.RegisterService(
+                Selector<InvalidIdResult>,
+                obj => new InvalidIdView((InvalidIdResult) obj));
 
             viewLocator.RegisterService(
                 Selector<InvalidDateResult>,
-                obj => new InvalidDateView((InvalidDateResult)obj));
+                obj => new InvalidDateView((InvalidDateResult) obj));
 
-            viewLocator.RegisterService(Selector<EmptyResult>, obj => new EmptyView());
+            viewLocator.RegisterService(
+                Selector<EmptyResult>,
+                obj => new EmptyView());
 
-            viewLocator.RegisterService(Selector<InstrumentResult>, obj => new InstrumentView((InstrumentResult)obj));
+            viewLocator.RegisterService(
+                Selector<InstrumentResult>,
+                obj => new InstrumentView((InstrumentResult) obj));
 
-            viewLocator.RegisterService(Selector<NoResult>, obj => new NoInstrumentView());
+            viewLocator.RegisterService(
+                Selector<NoResult>,
+                obj => new NoInstrumentView());
 
-            viewLocator.RegisterService(Selector<PositionResult>, obj => new PositionView((PositionResult)obj));
+            viewLocator.RegisterService(
+                Selector<PositionResult>,
+                obj => new PositionView((PositionResult) obj));
 
             return viewLocator;
         }

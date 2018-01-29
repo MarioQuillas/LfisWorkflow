@@ -1,12 +1,12 @@
 ﻿namespace LFWorkflow.Console.Presentation.CommandResults
 {
-    using LFWorkflow.Console.Presentation.Abstractions;
+    using Abstractions;
 
     internal class InstrumentResult : ICommandResult
     {
         public InstrumentResult(string name)
         {
-            this.Name = name;
+            Name = name;
         }
 
         public string Name { get; }

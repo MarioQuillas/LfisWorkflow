@@ -3,7 +3,6 @@
     using System;
     using System.Drawing;
     using System.Threading;
-
     using Console = Colorful.Console;
 
     internal class ConsoleSpinner : IDisposable
@@ -27,46 +26,46 @@
             this.left = left;
             this.top = top;
             this.delay = delay;
-            this.thread = new Thread(this.Spin);
-            this.Start();
+            thread = new Thread(Spin);
+            Start();
         }
 
         public void Dispose()
         {
-            this.Stop();
+            Stop();
         }
 
         public void Start()
         {
-            this.active = true;
-            if (!this.thread.IsAlive) this.thread.Start();
+            active = true;
+            if (!thread.IsAlive) thread.Start();
         }
 
         public void Stop()
         {
-            this.active = false;
-            this.Draw(' ');
+            active = false;
+            Draw(' ');
         }
 
         private void Draw(char c)
         {
-            Console.SetCursorPosition(this.left, this.top);
+            Console.SetCursorPosition(left, top);
             Console.ForegroundColor = Color.Green;
             Console.Write(c);
         }
 
         private void Spin()
         {
-            while (this.active)
+            while (active)
             {
-                this.Turn();
-                Thread.Sleep(this.delay);
+                Turn();
+                Thread.Sleep(delay);
             }
         }
 
         private void Turn()
         {
-            this.Draw(Sequence[++this.counter % Sequence.Length]);
+            Draw(Sequence[++counter % Sequence.Length]);
         }
     }
 }

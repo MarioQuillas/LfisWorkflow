@@ -1,12 +1,12 @@
 ﻿namespace LFWorkflow.Console.Presentation.CommandResults
 {
-    using LFWorkflow.Console.Presentation.Abstractions;
+    using Abstractions;
 
     internal class InvalidDateResult : ICommandResult
     {
         public InvalidDateResult(string askedDate)
         {
-            this.AskedDate = askedDate;
+            AskedDate = askedDate;
         }
 
         public string AskedDate { get; }

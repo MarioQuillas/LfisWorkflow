@@ -1,12 +1,12 @@
 ﻿namespace LFWorkflow.Console.Presentation.CommandResults
 {
-    using LFWorkflow.Console.Presentation.Abstractions;
+    using Abstractions;
 
     internal class InvalidIdResult : ICommandResult
     {
         public InvalidIdResult(string enteredId)
         {
-            this.EnteredId = enteredId;
+            EnteredId = enteredId;
         }
 
         public string EnteredId { get; }

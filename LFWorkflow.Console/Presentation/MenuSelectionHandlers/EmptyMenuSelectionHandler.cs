@@ -1,6 +1,6 @@
 ﻿namespace LFWorkflow.Console.Presentation.MenuSelectionHandlers
 {
-    using LFWorkflow.Console.Presentation.Abstractions;
+    using Abstractions;
 
     internal class EmptyMenuSelectionHandler : IMenuSelectionHandler
     {

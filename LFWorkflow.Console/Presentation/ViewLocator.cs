@@ -1,7 +1,7 @@
 ﻿namespace LFWorkflow.Console.Presentation
 {
-    using LFWorkflow.Console.Presentation.Abstractions;
-    using LFWorkflow.Console.Runtime;
+    using Abstractions;
+    using Runtime;
 
     internal class ViewLocator : ServiceLocator<ICommandResult, IView>
     {

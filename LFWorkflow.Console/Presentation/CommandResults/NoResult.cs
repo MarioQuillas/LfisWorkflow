@@ -1,6 +1,6 @@
 ﻿namespace LFWorkflow.Console.Presentation.CommandResults
 {
-    using LFWorkflow.Console.Presentation.Abstractions;
+    using Abstractions;
 
     public class NoResult : ICommandResult
     {

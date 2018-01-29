@@ -1,10 +1,9 @@
 ﻿namespace LFWorkflow.Console.Presentation.Views
 {
     using System.Drawing;
-
-    using LFWorkflow.Console.Presentation.Abstractions;
-    using LFWorkflow.Console.Presentation.CommandResults;
-    using LFWorkflow.Console.Runtime.Utils;
+    using Abstractions;
+    using CommandResults;
+    using Runtime.Utils;
 
     internal class PositionView : IView
     {
@@ -18,7 +17,7 @@
         public void Render()
         {
             Logger.Log("The position exists");
-            Logger.Log("Name : {0}", this.positionResult.FolioName, Color.DarkOrchid);
+            Logger.Log("Name : {0}", positionResult.FolioName, Color.DarkOrchid);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace LFWorkflow.Console.Presentation.Views
 {
-    using LFWorkflow.Console.Presentation.Abstractions;
+    using Abstractions;
 
     internal class EmptyView : IView
     {

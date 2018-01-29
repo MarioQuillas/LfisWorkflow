@@ -2,10 +2,9 @@
 {
     using System;
     using System.Drawing;
-
-    using LFWorkflow.Console.Presentation.Abstractions;
-    using LFWorkflow.Console.Presentation.Commands;
-    using LFWorkflow.Console.Runtime.Utils;
+    using Abstractions;
+    using Commands;
+    using Runtime.Utils;
 
     internal class MenuItem
     {
@@ -20,8 +19,8 @@
         {
             this.caption = caption;
             this.hotkey = hotkey;
-            this.IsTerminalCommand = isTerminal;
-            this.Command = command;
+            IsTerminalCommand = isTerminal;
+            Command = command;
             this.isVisible = isVisible;
         }
 
@@ -41,22 +40,22 @@
 
         public void Display()
         {
-            if (!this.isVisible()) return;
+            if (!isVisible()) return;
 
-            var pos = this.caption.IndexOf(this.hotkey);
+            var pos = caption.IndexOf(hotkey);
 
-            if (pos > 0) Logger.Write(this.caption.Substring(0, pos));
+            if (pos > 0) Logger.Write(caption.Substring(0, pos));
 
-            Logger.Write(this.hotkey.ToString(), Color.AliceBlue);
+            Logger.Write(hotkey.ToString(), Color.AliceBlue);
 
-            if (pos < this.caption.Length - 1) Logger.Write(this.caption.Substring(pos + 1));
+            if (pos < caption.Length - 1) Logger.Write(caption.Substring(pos + 1));
 
             Logger.Log(string.Empty);
         }
 
         public bool MatchesKey(char key)
         {
-            return this.isVisible() && char.ToLower(this.hotkey) == char.ToLower(key);
+            return isVisible() && char.ToLower(hotkey) == char.ToLower(key);
         }
     }
 }

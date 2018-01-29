@@ -1,13 +1,9 @@
 ﻿namespace LFWorkflow.Console.Presentation.Commands
 {
     using System.Drawing;
-
-    using LF.Broker;
-    using LF.Model.Instruments.Pricing.Instruments;
-
-    using LFWorkflow.Console.Presentation.Abstractions;
-    using LFWorkflow.Console.Presentation.CommandResults;
-    using LFWorkflow.Console.Runtime.Utils;
+    using Abstractions;
+    using CommandResults;
+    using Runtime.Utils;
 
     public class GetInstrumentCommand : ICommand
     {
@@ -20,8 +16,8 @@
             long tryParseInputInstrument;
 
             return !long.TryParse(askedId, out tryParseInputInstrument)
-                       ? new InvalidIdResult(askedId)
-                       : this.GetInstrument(tryParseInputInstrument);
+                ? new InvalidIdResult(askedId)
+                : GetInstrument(tryParseInputInstrument);
         }
 
         private ICommandResult GetInstrument(long instrumentId)

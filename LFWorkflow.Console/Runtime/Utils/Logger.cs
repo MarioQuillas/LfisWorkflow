@@ -2,7 +2,6 @@
 {
     using System.Drawing;
     using System.Linq;
-
     using Colorful;
 
     internal static class Logger
@@ -24,22 +23,22 @@
 
         public static void Log(string text, string arg0, params Color[] colors)
         {
-            Log(text, new[] { arg0 }, colors);
+            Log(text, new[] {arg0}, colors);
         }
 
         public static void Log(string text, string arg0, string arg1, params Color[] colors)
         {
-            Log(text, new[] { arg0, arg1 }, colors);
+            Log(text, new[] {arg0, arg1}, colors);
         }
 
         public static void Log(string text, string arg0, string arg1, string arg2, params Color[] colors)
         {
-            Log(text, new[] { arg0, arg1, arg2 }, colors);
+            Log(text, new[] {arg0, arg1, arg2}, colors);
         }
 
         public static void Log(string text, string arg0, string arg1, string arg2, string arg3, params Color[] colors)
         {
-            Log(text, new[] { arg0, arg1, arg2, arg3 }, colors);
+            Log(text, new[] {arg0, arg1, arg2, arg3}, colors);
         }
 
         public static char ReadKey(bool displayKey)

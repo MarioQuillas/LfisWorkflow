@@ -1,9 +1,8 @@
 ﻿namespace LFWorkflow.Console.Presentation.MenuSelectionHandlers
 {
     using System;
-
-    using LFWorkflow.Console.Presentation.Abstractions;
-    using LFWorkflow.Console.Runtime.Utils;
+    using Abstractions;
+    using Runtime.Utils;
 
     internal class ValidMenuSelectionHandler : IMenuSelectionHandler
     {
@@ -25,6 +24,7 @@
             // 15751, 189727
             var result = this.currentCommand.Execute();
             var view = this.viewLocator.LocateServiceFor(result);
+
             this.renderAction(view);
 
             Logger.Log(string.Empty);

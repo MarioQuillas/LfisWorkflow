@@ -1,9 +1,8 @@
 ﻿namespace LFWorkflow.Console.Presentation.Views
 {
     using System.Drawing;
-
-    using LFWorkflow.Console.Presentation.Abstractions;
-    using LFWorkflow.Console.Runtime.Utils;
+    using Abstractions;
+    using Runtime.Utils;
 
     internal class NoInstrumentView : IView
     {

@@ -2,11 +2,10 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-
-    using LFWorkflow.Console.Presentation.Abstractions;
-    using LFWorkflow.Console.Presentation.Commands;
-    using LFWorkflow.Console.Presentation.MenuSelectionHandlers;
-    using LFWorkflow.Console.Runtime.Utils;
+    using Abstractions;
+    using Commands;
+    using MenuSelectionHandlers;
+    using Runtime.Utils;
 
     internal class UserInterface : IUserInterface
     {
@@ -18,27 +17,27 @@
 
         public UserInterface(ViewLocator viewLocator)
         {
-            this.menuSelectionHandler = new EmptyMenuSelectionHandler();
+            menuSelectionHandler = new EmptyMenuSelectionHandler();
             this.viewLocator = viewLocator;
             this.menu = new[]
-                            {
-                                MenuItem.CreateNonTerminal(
-                                    "Get Intrument by Id",
-                                    'I',
-                                    new GetInstrumentCommand(),
-                                    () => true),
-                                MenuItem.CreateNonTerminal(
-                                    "Get Position by Id",
-                                    'P',
-                                    new GetPositionCommand(),
-                                    () => true),
-                                MenuItem.CreateTerminal("Quit", 'Q')
-                            };
+            {
+                MenuItem.CreateNonTerminal(
+                    "Get Intrument by Id",
+                    'I',
+                    new GetInstrumentCommand(),
+                    () => true),
+                MenuItem.CreateNonTerminal(
+                    "Get Position by Id",
+                    'P',
+                    new GetPositionCommand(),
+                    () => true),
+                MenuItem.CreateTerminal("Quit", 'Q')
+            };
         }
 
         public void ExecuteCommand()
         {
-            this.menuSelectionHandler.DisplayContent();
+            menuSelectionHandler.DisplayContent();
         }
 
         public bool ReadCommand()
@@ -48,20 +47,20 @@
 
             var keyChar = Logger.ReadKey(true);
 
-            var selectedMenuItem = this.menu.SingleOrDefault(item => item.MatchesKey(keyChar));
+            var selectedMenuItem = menu.SingleOrDefault(item => item.MatchesKey(keyChar));
 
             if (selectedMenuItem == null)
             {
-                this.menuSelectionHandler = new InvalidMenuSelectionHandler();
+                menuSelectionHandler = new InvalidMenuSelectionHandler();
                 return true;
             }
 
             if (selectedMenuItem.IsTerminalCommand) return false;
 
-            this.menuSelectionHandler = new ValidMenuSelectionHandler(
+            menuSelectionHandler = new ValidMenuSelectionHandler(
                 selectedMenuItem.Command,
-                this.viewLocator,
-                this.Render);
+                viewLocator,
+                Render);
 
             return true;
         }
@@ -87,7 +86,7 @@
         {
             Logger.Log("Select an operation:");
 
-            foreach (var menuItem in this.menu) menuItem.Display();
+            foreach (var menuItem in menu) menuItem.Display();
 
             Logger.Log(string.Empty);
         }

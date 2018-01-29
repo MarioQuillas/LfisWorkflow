@@ -17,20 +17,20 @@
         public TimeBenchmarker(string messageName)
         {
             this.messageName = messageName;
-            this.timer.Start();
-            this.messageConsoleColor = Color.Cyan;
-            this.timeConsoleColor = Color.Yellow;
+            timer.Start();
+            messageConsoleColor = Color.Cyan;
+            timeConsoleColor = Color.Yellow;
         }
 
         public void Dispose()
         {
-            this.timer.Stop();
+            timer.Stop();
             Logger.Log(
                 "{0} {1}",
-                this.messageName,
-                this.timer.Elapsed.ToString(),
-                this.messageConsoleColor,
-                this.timeConsoleColor);
+                messageName,
+                timer.Elapsed.ToString(),
+                messageConsoleColor,
+                timeConsoleColor);
         }
     }
 }

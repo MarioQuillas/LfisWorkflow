@@ -2,13 +2,9 @@
 {
     using System;
     using System.Drawing;
-
-    using LF.Broker;
-    using LF.Model.Instruments.Pricing.Instruments;
-
-    using LFWorkflow.Console.Presentation.Abstractions;
-    using LFWorkflow.Console.Presentation.CommandResults;
-    using LFWorkflow.Console.Runtime.Utils;
+    using Abstractions;
+    using CommandResults;
+    using Runtime.Utils;
 
     public class GetPositionCommand : ICommand
     {
@@ -23,8 +19,8 @@
             var askedDate = Logger.ReadLine(Color.LawnGreen);
 
             return !DateTime.TryParse(askedDate, out var tryParseInputDate)
-                       ? new InvalidDateResult(askedDate)
-                       : this.GetPosition(tryParseInputPosition, tryParseInputDate);
+                ? new InvalidDateResult(askedDate)
+                : GetPosition(tryParseInputPosition, tryParseInputDate);
         }
 
         private ICommandResult GetPosition(int positionId, DateTime asOfDate)

@@ -1,7 +1,7 @@
 ﻿namespace LFWorkflow.Console.Presentation.Commands
 {
-    using LFWorkflow.Console.Presentation.Abstractions;
-    using LFWorkflow.Console.Presentation.CommandResults;
+    using Abstractions;
+    using CommandResults;
 
     internal class DoNothingCommand : ICommand
     {
